@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 import Reminder from "../models/reminder";
 
@@ -12,7 +13,7 @@ class ReminderService {
   }
 
   async addReminder(title: string) {
-    const response = await this.http.post<Reminder[]>("/todos", { title });
+    const response = await this.http.post<Reminder>("/todos", { title });
     return response.data;
   }
 
@@ -22,5 +23,4 @@ class ReminderService {
   }
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default new ReminderService();
